@@ -1,54 +1,68 @@
-import java.util.Scanner
-
 fun main(){
     menu()
-    var normalOCamper:Boolean
-    if (pedirVersionFurgo()) normalOCamper=true
-    else normalOCamper=false
-    var precioBase=calcularPreuBase(normalOCamper)
-    var precioActual=calcularPreuActual(calcularPreuBase(normalOCamper))
-    println("El precio base de tu furgoneta es: "+precioBase+"€")
-    println("El precio actual de tu furgoneta es: "+precioActual+"€")
+    val normalOCamper:Boolean = pedirVersionFurgo()
+    val suma250:Boolean = pedirTienePortaBicis()
+    val sumaYa250:Int
+    if (suma250) sumaYa250=250
+    else sumaYa250=0
+    val precioBase=calcularPreuBase(normalOCamper)+sumaYa250
+    val precioActual=calcularPreuActual(calcularPreuBase(normalOCamper))+sumaYa250
+    println(YELLOW+"El precio base de tu furgoneta es: "+precioBase+"€"+RESET)
+    println(YELLOW+"El precio actual de tu furgoneta es: "+precioActual+"€"+RESET)
 }
 
+/**
+ * Aquesta funció s'utilitza per a demanar al client la versió de la seva furgoneta
+ * @author arnau.gallardo
+ * @since 19/12/23
+ */
 fun pedirVersionFurgo():Boolean{
-    println("¿Tu furgoneta es la versión normal (true) o la versión Camper (false)?")
-    var versionFurgo=readBoolean("Introduce la versión de tu furgoneta","introduce true/false")
+    println(CYAN+"¿Tu furgoneta es la versión normal (true) o la versión Camper (false)?"+RESET)
+    var versionFurgo=readBoolean(BLUE+"Introduce la versión de tu furgoneta:"+RESET,"introduce true/false")
     if (versionFurgo){
-        println("Tienes la furgoneta normal")
+        println(PURPLE+"Tienes la furgoneta normal"+RESET)
     }else{
-        println("Tienes la versión Camper")
+        println(PURPLE+"Tienes la versión Camper"+RESET)
     }
     return versionFurgo
 }
 
-fun readKM(message:String,kmMin:Int):Int{
-    val scanner=Scanner(System.`in`)
-    var intValue=0
-    var correctValue:Boolean
-    do {
-        print(message)
-        correctValue=scanner.hasNextInt()
-        if (!correctValue){
-            println("ERROR: introduce un número entero")
-        }else{
-            intValue=scanner.nextInt()
-            if (intValue<kmMin){
-                println("ERROR: el valor introducido debe ser mayor a 0")
-                correctValue=false
-            }
-        }
-        scanner.nextLine()
-    }while (!correctValue)
-    return intValue
+/**
+ * Aquesta funció s'utilitza per a demanar al client si la seva furgoneta té o no portabicis, per tal de després incrementar el preu de la mateixa
+ * @author arnau.gallardo
+ * @since 19/12/23
+ */
+fun pedirTienePortaBicis():Boolean{
+    var portaBicis=readBoolean(BLUE+"¿Tiene portabicis tu furgoneta?:"+RESET,"introduce true/false")
+    if (portaBicis) println(PURPLE+"Tu furgoneta tiene portabicis"+RESET)
+    else println(PURPLE+"Tu furgoneta no tiene portabicis"+RESET)
+    return portaBicis
 }
 
+
+/**
+ * Aquesta funció utilitza AsciiArt per a donar la benvinguda
+ * @author arnau.gallardo
+ * @since 19/12/23
+ */
 fun menu(){
-    println("Bienvenido al mercado de vehículos")
+    println(GREEN+"######  ### ####### #     # #     # ####### #     # ### ######  #######       #    #          #     # ####### ######   #####     #    ######  ####### \n" +
+            "#     #  #  #       ##    # #     # #       ##    #  #  #     # #     #      # #   #          ##   ## #       #     # #     #   # #   #     # #     # \n" +
+            "#     #  #  #       # #   # #     # #       # #   #  #  #     # #     #     #   #  #          # # # # #       #     # #        #   #  #     # #     # \n" +
+            "######   #  #####   #  #  # #     # #####   #  #  #  #  #     # #     #    #     # #          #  #  # #####   ######  #       #     # #     # #     # \n" +
+            "#     #  #  #       #   # #  #   #  #       #   # #  #  #     # #     #    ####### #          #     # #       #   #   #       ####### #     # #     # \n" +
+            "#     #  #  #       #    ##   # #   #       #    ##  #  #     # #     #    #     # #          #     # #       #    #  #     # #     # #     # #     # \n" +
+            "######  ### ####### #     #    #    ####### #     # ### ######  #######    #     # #######    #     # ####### #     #  #####  #     # ######  ####### "+RESET)
 }
 
+/**
+ * Aquesta funció s'utilitza per a saber quina quantitat s'ha de restar al preu de la furgoneta segons els km dels pneumàtics
+ * @author arnau.gallardo
+ * @since 19/12/23
+ */
 fun depreciacionEstadoNeumaticos():Int{
-    var estadoNeumaticos=llegirInt("Introduce los km recorridos con los neumáticos acutales:",0,500000)
+    var estadoNeumaticos=llegirLong(BLUE+"Introduce los km recorridos con los neumáticos acutales:"+RESET,0)
+    println(PURPLE+"Los neumáticos actuales de tu furgoneta han reccorrido "+estadoNeumaticos+"km"+RESET)
     var depreciacion:Int
     if (estadoNeumaticos<5000){
         depreciacion=0
@@ -58,4 +72,19 @@ fun depreciacionEstadoNeumaticos():Int{
         depreciacion=300
     }
     return depreciacion
+}
+
+/**
+ * Aquesta funció s'utilitza per a saber el valor per km segons els anys de la furgoneta del client
+ * @author arnau.gallardo
+ * @since 19/12/23
+ */
+fun porcentajeKM():Double{
+    var porcentaje:Double
+    var anosFurgo=llegirInt(BLUE+"Introduce los años de tu furgoneta:"+RESET,0,100)
+    println(PURPLE+"Tu furgoneta lleva matriculada "+anosFurgo+" años"+RESET)
+    if (anosFurgo<6) porcentaje=0.00001
+    else if (anosFurgo>=6 && anosFurgo<10) porcentaje=0.00002
+    else porcentaje=0.00004
+    return porcentaje
 }

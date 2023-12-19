@@ -41,7 +41,7 @@ fun readWord(pMessageIn: String
  * @return outputValue Output value
  */
 fun readSentence(pMessageIn: String
-             , pMessageErrorDT: String
+                 , pMessageErrorDT: String
 ): String{
 
     var outputValue: String = ""
@@ -141,11 +141,11 @@ fun readBoolean(pMessageIn: String
     var correctDataType: Boolean = false
 
     do{
-        print("$pMessageIn: ")
+        print("$pMessageIn ")
         correctDataType = scan.hasNextBoolean()
 
         if (!correctDataType){
-            println("ERROR: " + pMessageErrorDT + RESET)
+            println(RED+"ERROR: " + pMessageErrorDT + RESET)
         }else{
             outputValue = scan.nextBoolean()
         }
@@ -267,10 +267,10 @@ fun readFloat(pMessageIn: String
  * @return outputValue Output value
  */
 fun readFloat(pMessageIn: String
-            , pMessageErrorDT: String
-            , pMessageErrorDV: String
-            , pMin: Float
-            , pMax: Float
+              , pMessageErrorDT: String
+              , pMessageErrorDV: String
+              , pMin: Float
+              , pMax: Float
 ): Float{
 
     var outputValue: Float = 0.0f

@@ -1,3 +1,8 @@
+/**
+ * Aquesta funció s'utilitza per a denominar el preu base de la furgoneta del client segons el seu model
+ * @author arnau.gallardo
+ * @since 19/12/23
+ */
 fun calcularPreuBase(normal:Boolean):Double{
     val preuBase: Double = when(normal){
         true -> 73490.0
@@ -6,7 +11,14 @@ fun calcularPreuBase(normal:Boolean):Double{
     return preuBase
 }
 
+/**
+ * Aquesta funció s'utilitza per a calcular el preu actual de la furgoneta del client segons els km recorreguts
+ * @author arnau.gallardo
+ * @since 19/12/23
+ */
 fun calcularPreuActual(preuBase:Double):Double{
-    val preuActual:Double=preuBase-preuBase*0.00001*readKM("Introduce los km de tu furgoneta: ",0)
+    val kmTotales=llegirLong(BLUE+"Introduce los km de tu furgoneta:"+RESET,0)
+    println(PURPLE+"Tu furgoneta ha recorrido un total de "+kmTotales+"km"+RESET)
+    val preuActual:Double=preuBase-preuBase*porcentajeKM()*kmTotales
     return  preuActual-depreciacionEstadoNeumaticos()
 }
