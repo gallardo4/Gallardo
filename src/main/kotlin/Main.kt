@@ -2,10 +2,23 @@ import java.util.Scanner
 
 fun main(){
     menu()
+    var normalOCamper:Boolean
+    if (pedirVersionFurgo()) normalOCamper=true
+    else normalOCamper=false
+    var precioBase=calcularPreuBase(normalOCamper)
+    var precioActual=calcularPreuActual(calcularPreuBase(normalOCamper))
+    println("El precio base de tu furgoneta es: "+precioBase+"€")
+    println("El precio actual de tu furgoneta es: "+precioActual+"€")
 }
 
 fun pedirVersionFurgo():Boolean{
-    var versionFurgo=readBoolean("Introduce la versión de tu furgoneta:","introduce true/false")
+    println("¿Tu furgoneta es la versión normal (true) o la versión Camper (false)?")
+    var versionFurgo=readBoolean("Introduce la versión de tu furgoneta","introduce true/false")
+    if (versionFurgo){
+        println("Tienes la furgoneta normal")
+    }else{
+        println("Tienes la versión Camper")
+    }
     return versionFurgo
 }
 
@@ -34,9 +47,15 @@ fun menu(){
     println("Bienvenido al mercado de vehículos")
 }
 
-fun pedirEstadoNeumaticos(){
-    var estadoNeumaticos=llegirInt("Introduce los km recorridos con los neumáticos acutales",0,500000)
+fun depreciacionEstadoNeumaticos():Int{
+    var estadoNeumaticos=llegirInt("Introduce los km recorridos con los neumáticos acutales:",0,500000)
+    var depreciacion:Int
     if (estadoNeumaticos<5000){
-        calcularPreuActual(calcularPreuBase(pedirVersionFurgo()))
+        depreciacion=0
+    }else if (estadoNeumaticos>=5000 && estadoNeumaticos<10000){
+        depreciacion=200
+    }else{
+        depreciacion=300
     }
+    return depreciacion
 }
