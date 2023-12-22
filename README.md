@@ -35,7 +35,7 @@ Serveix per a llegir un nombre enter.
 ![Funció llegirInt](https://github.com/gallardo4/Gallardo/blob/master/Screen%20Shot%2022-12-2023%20at%2013.08.png)
 #### Funció llegirLong()
 Serveix per a llegir un nombre llarg.
-![Funció llegirLong](https://github.com/gallardo4/Gallardo/blob/master/Screen%20Shot%2022-12-2023%20at%2013.09.png)
+![Funció llegirLong](https://github.com/gallardo4/Gallardo/blob/master/Screen%20Shot%2022-12-2023%20at%2013.31.png)
 #### Funció llegirDouble()
 Serveix per a llegir un nombre decimal.
 ![Funció llegirDouble](https://github.com/gallardo4/Gallardo/blob/master/Screen%20Shot%2022-12-2023%20at%2013.20.png)
