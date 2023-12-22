@@ -13,7 +13,7 @@ fun main(){
 
 /**
  * Aquesta funció s'utilitza per a demanar al client la versió de la seva furgoneta
- * @author arnau.gallardo
+ * @author gallardo4
  * @since 19/12/23
  */
 fun pedirVersionFurgo():Boolean{
@@ -29,7 +29,7 @@ fun pedirVersionFurgo():Boolean{
 
 /**
  * Aquesta funció s'utilitza per a demanar al client si la seva furgoneta té o no portabicis, per tal de després incrementar el preu de la mateixa
- * @author arnau.gallardo
+ * @author gallardo4
  * @since 19/12/23
  */
 fun pedirTienePortaBicis():Boolean{
@@ -42,7 +42,7 @@ fun pedirTienePortaBicis():Boolean{
 
 /**
  * Aquesta funció utilitza AsciiArt per a donar la benvinguda
- * @author arnau.gallardo
+ * @author gallardo4
  * @since 19/12/23
  */
 fun menu(){
@@ -57,7 +57,7 @@ fun menu(){
 
 /**
  * Aquesta funció s'utilitza per a saber quina quantitat s'ha de restar al preu de la furgoneta segons els km dels pneumàtics
- * @author arnau.gallardo
+ * @author gallardo4
  * @since 19/12/23
  */
 fun depreciacionEstadoNeumaticos():Int{
@@ -76,7 +76,7 @@ fun depreciacionEstadoNeumaticos():Int{
 
 /**
  * Aquesta funció s'utilitza per a saber el valor per km segons els anys de la furgoneta del client
- * @author arnau.gallardo
+ * @author gallardo4
  * @since 19/12/23
  */
 fun porcentajeKM():Double{

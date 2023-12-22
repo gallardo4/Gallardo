@@ -2,7 +2,7 @@ import java.util.Scanner
 
 /**
  * Aquesta funció s'utilitza per a llegir un nombre enter
- * @author arnau.gallardo
+ * @author gallardo4
  * @since 19/12/23
  */
 fun llegirInt(mensaje:String,intMin:Int,intMax:Int):Int{
@@ -28,7 +28,7 @@ fun llegirInt(mensaje:String,intMin:Int,intMax:Int):Int{
 
 /**
  * Aquesta funció s'utilitza per a llegir un nombre enter llarg
- * @author arnau.gallardo
+ * @author gallardo4
  * @since 19/12/23
  */
 fun llegirLong(mensaje:String,longMin:Long): Long {
@@ -54,7 +54,7 @@ fun llegirLong(mensaje:String,longMin:Long): Long {
 
 /**
  * Aquesta funció s'utilitza per a llegir un nombre decimal
- * @author arnau.gallardo
+ * @author gallardo4
  * @since 19/12/23
  */
 fun llegirDouble(mensaje:String,intMin:Double,intMax:Double):Double{

@@ -1,6 +1,6 @@
 /**
  * Aquesta funció s'utilitza per a denominar el preu base de la furgoneta del client segons el seu model
- * @author arnau.gallardo
+ * @author gallardo4
  * @since 19/12/23
  */
 fun calcularPreuBase(normal:Boolean):Double{
@@ -13,7 +13,7 @@ fun calcularPreuBase(normal:Boolean):Double{
 
 /**
  * Aquesta funció s'utilitza per a calcular el preu actual de la furgoneta del client segons els km recorreguts
- * @author arnau.gallardo
+ * @author gallardo4
  * @since 19/12/23
  */
 fun calcularPreuActual(preuBase:Double):Double{
