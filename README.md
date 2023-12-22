@@ -1,4 +1,5 @@
 # Volkswagen Grand California
+![Foto d'una Volkswagen Grand California](https://github.com/gallardo4/Gallardo/blob/master/VW_Grand_California_600_2.0_TDI_%E2%80%93_f_03072021.jpg)
 ## Descripció del projecte
 Aquest projecte serveix per, a partir d'una sèrie de preguntes, denominar el preu base i el preu actual de la furgoneta de l'usuari segons unes variants.
 ## Funcionalitats
